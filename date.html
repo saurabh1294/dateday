@@ -1,0 +1,47 @@
+	
+<!-- bootstrap css inclusion -->
+<link rel="stylesheet" type="text/css" href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css"/>
+<!-- bootstrap css inclusion -->
+
+<!-- angularjs inclusion -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+<!-- angularjs inclusion -->
+
+<!-- custom libraries -->
+<script src="dateApp.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<!-- custom libraries -->
+	
+<div class="container bd-example" data-example-id="" ng-app="dateComponent" ng-controller="dateCtrl">
+		<form name="dateForm">
+			<div class="form-group">
+				<label for="startDate">Start date <span class="required">*</span></label>
+				<input type="date" value="1984-07-04" class="form-control" id="startDate" name="startDate" 
+				ng-model="startDate" aria-describedby="startDateHelp" required>
+				
+                    <span ng-show="dateForm.startDate.$dirty &amp;&amp; dateForm.startDate.$invalid" class="ng-hide">
+                        <span class="error" ng-show="dateForm.startDate.$error.required">Start date is required</span>
+                    </span>
+				
+			</div>
+			<div class="form-group">
+				<label for="endDate">End date <span class="required">*</span></label>
+				<input type="date" value="1984-12-25" class="form-control" id="endDate" name="endDate" 
+				ng-model="endDate" aria-describedby="endDateHelp" required>
+				
+                    <span ng-show="dateForm.endDate.$dirty &amp;&amp; dateForm.endDate.$invalid" class="ng-hide">
+                        <span class="error" ng-show="dateForm.endDate.$error.required">End date is required</span>
+                    </span>
+				
+			</div>
+			<div class="form-group">
+				<label for="exampleTextarea">Number of days between start and end date (start/end days excluded)</label>
+				<textarea class="form-control" id="exampleTextarea" rows="3" readonly></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary" ng-click="calcDays()"
+			ng-disabled="dateForm.startDate.$invalid || dateForm.endDate.$invalid">
+				Calculate days
+			</button>
+		</form>
+</div>
